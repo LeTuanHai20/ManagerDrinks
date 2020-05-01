@@ -1,0 +1,10 @@
+﻿@model ShoppingCartViewModel
+    <li class="nav-item link lg">
+        <a class="nav-link" asp-action="ShoppingCart" asp-controller="ShoppingCart">
+            <img src="~/icon/shopping-cart-solid.svg" alt="go to Cart" />
+            @if(@Model.ShoppingCart.ShoppingCartItems.Count > 0)
+            {
+                <p>@Model.ShoppingCart.ShoppingCartItems.Count</p>
+            }
+        </a>
+    </li>

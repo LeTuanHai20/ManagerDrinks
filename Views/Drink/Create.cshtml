@@ -1,0 +1,74 @@
+﻿@model CreateDrinkViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<form asp-action="Create" asp-controller="drink" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" asp-for="Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ShortDescription"></label>
+        <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Short Description" asp-for="ShortDescription">
+        <span asp-validation-for="ShortDescription" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LongDescription"></label>
+        <textarea placeholder="Long Description" rows="5" cols="155" asp-for="LongDescription"></textarea>
+        <span asp-validation-for="LongDescription" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Price" asp-for="Price">
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl"></label>
+        <div class="custom-file">
+            <input class="form-control custom-file-input" placeholder="Enter Images" asp-for="ImageUrl">
+            <label class="custom-file-label">Choose file...</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageThumbnailUrl"></label>
+        <div class="custom-file">
+            <input class="form-control custom-file-input" placeholder="Enter Images" asp-for="ImageThumbnailUrl">
+            <label class="custom-file-label">Choose file...</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" asp-for="IsPreferredDrink">
+            <label class="form-check-label" asp-for="IsPreferredDrink"></label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" asp-for="InStock">
+            <label class="form-check-label" asp-for="InStock"></label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryId"></label>
+        <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="If it's an alcoholic beverage, enter 1, otherwise enter 2" asp-for="CategoryId">
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+@section Scripts{
+    <script>
+            $(document).ready(function () {
+                $(".custom-file-input").on("change", function () {
+                    var fileLabel = $(this).next(".custom-file-label");
+                    var files = $(this)[0].files;
+                        fileLabel.html(files[0].name);
+                });
+            });
+    </script>
+}
+

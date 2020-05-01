@@ -1,0 +1,34 @@
+﻿.nut {
+    width: auto;
+    margin-left: 102px;
+}
+
+    .nut > a {
+        width: 120px;
+    }
+
+.img-thumbnail.product > img {
+    padding: 4px 0px 0px 5px;
+}
+
+.btn.btn-primary {
+    display: flex;
+    width: 182px;
+    text-align: center;
+}
+
+.price {
+    position: relative;
+    top: 45px;
+    left: 241px;
+    font-size: 26px;
+}
+
+.name {
+    margin-top: 14px;
+    font-size: 26px;
+}
+
+.nut > .btn.btn-primary {
+    margin-right: 14px;
+}

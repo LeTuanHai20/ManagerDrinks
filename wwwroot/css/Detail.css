@@ -1,0 +1,14 @@
+﻿.card-block {
+    padding: 9px;
+    background-color: white;
+}
+
+.card {
+    width: auto;
+    height: auto;
+    background-color: #897a7a !important;
+}
+
+    .card > .text-center {
+        padding-top: 20px;
+    }

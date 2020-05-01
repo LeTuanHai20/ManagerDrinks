@@ -1,0 +1,266 @@
+﻿
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+
+
+.container.search {
+    margin-bottom: 56px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+.row.checkoutForm {
+    margin-top: 101px;
+    font-size: 20px;
+}
+
+.text-right > .btn-group {
+    width: 300px;
+}
+
+.btn-group > .btn.btn-default {
+    margin-left: 9px;
+}
+
+.dropdown-menu.show {
+    text-align: center;
+    padding: 0;
+}
+
+.dropdown-menu > li > a {
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 36px;
+}
+
+.dropdown-menu > li {
+    height: 38px;
+    padding: 0;
+}
+
+    .dropdown-menu > li:hover {
+        background-color: #372a3f;
+    }
+
+        .dropdown-menu > li:hover > a {
+            color: white;
+        }
+
+.row.checkoutForm > table {
+}
+
+.row.checkoutForm > h2 {
+    font-size: 31px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    font-family: tahoma;
+}
+
+.nav-item.dropdown.drinks.show {
+    width: 88px;
+}
+
+li.nav-item.dropdown.manager {
+    margin-right: 109px;
+}
+
+li.nav-item.dropdown.drinks > a {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    height: 95px;
+    width: 115px;
+    text-align: center;
+    line-height: 81px;
+}
+
+.noManager {
+    width: 153px;
+}
+
+li.nav-item.dropdown.drinks {
+    width: 88px;
+    margin-right: 14px;
+}
+
+li.nav-item.dropdown.products > a {
+    font-size: 16px;
+    font-weight: 500;
+    height: 95px;
+    width: 115px;
+    text-align: center;
+    line-height: 81px;
+}
+
+li.nav-item.dropdown.manager > a {
+    font-size: 16px;
+    font-weight: 500;
+    height: 95px;
+    width: 115px;
+    text-align: center;
+    line-height: 81px;
+    margin-left: 16px;
+}
+
+li.nav-item.link.lg .nav-link p {
+    color: white;
+    border: 1px solid;
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    line-height: 31px;
+    background-color: red;
+    font-size: 14px;
+    position: relative;
+    bottom: 72px;
+    left: 45px;
+}
+
+li.nav-item.dropdown.drinks > a:hover {
+    color: #505068;
+}
+
+
+body {
+    margin-bottom: 60px;
+    background-color: #e9dbf2;
+}
+
+
+.col-sm-4.col-lg-4.col-md-4.mt-2 .caption {
+    height: 137px !important;
+}
+
+.addToCart {
+    margin: 0 113px 0 0px;
+}
+
+.col-sm-3.mr-auto .dropdown {
+    position: relative;
+    top: 26px;
+    left: -42px;
+}
+
+.dropdown > button {
+    width: 200px;
+    height: 56px;
+}
+
+.col-sm-3.ml-auto > .navbar {
+    padding: 0;
+    height: 56px;
+    width: 322px;
+    position: relative;
+    top: 25px;
+    background-color: #e9dbf2 !important;
+}
+
+nav.navbar.navbar-light.bg-light button {
+    height: 56px;
+    width: 80px;
+    padding: 0;
+    font-size: 19px;
+}
+
+nav.navbar.navbar-light.bg-light input[type = "search"] {
+    height: 56px;
+    width: 232px;
+}
+
+
+.nav-item.link > a.nav-link {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    height: 95px;
+    width: 74px;
+    text-align: center;
+    line-height: 81px;
+}
+
+    .nav-item.link > a.nav-link:focus {
+        color: black;
+    }
+
+.nav-item.link.lg > a.nav-link {
+    width: 100px;
+    font-size: 16px;
+}
+
+a.nav-link > span {
+    position: relative;
+    bottom: 81px;
+    left: 80px;
+}
+
+a.nav-link > img {
+    width: 31px;
+}
+
+.nav-item.link > a.nav-link:hover {
+    background-color: none;
+    color: #505068;
+}
+
+.navbar.navbar-expand-lg {
+    padding: 0;
+    margin-bottom: 100px;
+    background-color: #0099CC;
+}
+
+
+form.form-inline.my-2.my-lg-0 {
+    width: 281px;
+    height: 95px;
+}
+
+    form.form-inline.my-2.my-lg-0 > button {
+        color: black;
+        border: none;
+    }
+
+.navbar-dark .navbar-brand.logo {
+    padding: 0;
+}

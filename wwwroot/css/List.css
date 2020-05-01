@@ -1,0 +1,17 @@
+﻿.img-thumbnail.product > img {
+    padding: 9px 1px 0px 13px;
+}
+
+.caption > .pull-right {
+    position: relative;
+    top: 40px;
+    left: 233px;
+}
+
+.caption h3 {
+    padding-left: 8px;
+}
+
+.caption p {
+    padding-left: 8px;
+}

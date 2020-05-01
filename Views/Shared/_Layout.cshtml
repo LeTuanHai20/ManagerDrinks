@@ -1,0 +1,118 @@
+﻿@inject SignInManager<IdentityUser> signInManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    @*validate client side*@
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    @*css*@
+    @RenderSection("Header",required:false)
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark menu">
+            <a class="navbar-brand logo" href="#"><img src="~/images/unnamed.jpg" alt="" width="200" height="95"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+
+                        <li class="nav-item dropdown products">
+                            <a class="nav-link dropdown-toggle " id="navbarDropdown" role="button" style="color:black" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                UTILITIES
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-action="listOrders" asp-controller="order">Order</a>
+                                <a class="dropdown-item" asp-action="ManagerDrinks" asp-controller="drink">Products</a>
+                                <a class="dropdown-item" asp-action="index" asp-controller="home">Home</a>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item link">
+                            <a class="nav-link" asp-action="index" asp-controller="home">HOME</a>
+                        </li>
+                    }
+                    <li class="nav-item dropdown drinks">
+                        <a class="nav-link dropdown-toggle " id="navbarDropdown" role="button" style="color:black" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            DRINKS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-action="list" asp-controller="drink">All</a>
+                            <a class="dropdown-item" asp-action="list" asp-controller="drink" asp-route-category="Alcoholic">Alcoholic</a>
+                            <a class="dropdown-item" asp-action="list" asp-controller="drink" asp-route-category="Non-alcoholic">Non-alcoholic</a>
+                        </div>
+                    </li>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item dropdown manager">
+                            <a class="nav-link dropdown-toggle " id="navbarDropdown" role="button" style="color:black" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MANAGER
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-action="ListRoles" asp-controller="administration">Role</a>
+                                <a class="dropdown-item" asp-action="ListUsers" asp-controller="administration">Users</a>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <div class="noManager"></div>
+                    }
+                    <li class="nav-item">
+                        <form class="form-inline my-2 my-lg-0" asp-controller="Drink" asp-action="Search" method="get">
+                            <input class="form-control mr-sm-2" placeholder="Search" value="@ViewData["searchString"]">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </li>
+                    @await Component.InvokeAsync("ShoppingCartSummary")
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item link lg">
+                            <a class="nav-link" asp-action="logout" asp-controller="account">
+                                Logout <span>@User.Identity.Name</span>
+                            </a>
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="nav-item link lg">
+                            <a class="nav-link" asp-action="register" asp-controller="account">REGISTER</a>
+                        </li>
+                        <li class="nav-item link lg">
+                            <a class="nav-link" asp-action="login" asp-controller="account">LOGIN</a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+</body>
+
+</html>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+@RenderSection("Scripts", required: false)

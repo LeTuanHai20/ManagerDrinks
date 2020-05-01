@@ -1,0 +1,18 @@
+﻿@model DrinksViewModel
+@{
+    ViewData["Title"] = "List Drink ";
+}
+@section Header{
+    <link href="~/css/List.css" rel="stylesheet" asp-append-version="true"/>
+}
+
+@foreach (var drink in Model.Drinks)
+{
+    <partial name="DrinksSummary" model="@drink" />
+
+}
+
+
+
+
+

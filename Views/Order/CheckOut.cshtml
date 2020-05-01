@@ -1,0 +1,79 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Check Out";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-6">
+        <form method="post" asp-action="Checkout" asp-controller="order">
+            <input type="hidden" asp-for="Email" />
+                <div class="form-group">
+                    <label asp-for="FullName"></label>
+                    <input class="form-control" placeholder="Full Name" asp-for="FullName">
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                     <label asp-for="PhoneNumber"></label>
+                    <input class="form-control" placeholder="Phone Number" asp-for="PhoneNumber">
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+          
+                <div class="form-group">
+                    <label asp-for="Address"></label>
+                    <input class="form-control" placeholder="Address" asp-for="Address">
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NoteToSalesMan"></label>
+                    <textarea asp-for="NoteToSalesMan" rows="5" cols="74" placeholder="Note To Sales Man">
+                        
+                    </textarea>
+                    <span asp-validation-for="NoteToSalesMan" class="text-danger"></span>
+                </div>
+         
+       
+            <button type="submit" class="btn btn-primary">Complete Order</button>
+
+
+        </form>
+</div>
+<div class="col-sm-6">
+    <h2>Your shopping cart</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Selected amount</th>
+                <th>Drink</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.shoppingCart.ShoppingCartItems)
+            {
+                <tr>
+                    <td class="text-center">@line.Amount</td>
+                    <td class="text-left">@line.Drink.Name</td>
+                    <td class="text-right">@line.Drink.Price.ToString("c")</td>
+                    <td class="text-right">
+                        @((line.Amount * line.Drink.Price).ToString("c"))
+                    </td>
+                    <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-drinkId="@line.Drink.DrinkId">Remove</a></td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
+                <td class="text-right">
+                    @Model.ShoppingCartTotal.ToString("c")
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+    </div>
+

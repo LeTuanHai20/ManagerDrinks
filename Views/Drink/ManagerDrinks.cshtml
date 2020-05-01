@@ -1,0 +1,33 @@
+﻿@model DrinksViewModel
+@{
+    ViewData["Title"] = "Manager Drinks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Header{ 
+    <link href="~/css/ManagerProduct.css" rel="stylesheet" asp-append-version="true"/>
+}
+<h1>Manager Drinks</h1>
+<a class="btn btn-primary" asp-action="Create" >Create a new Product</a>
+@foreach (var drink in Model.Drinks)
+{
+
+
+<div class="col-sm-4 col-lg-4 col-md-4 mt-2" style="float:left;">
+    <div class="img-thumbnail product">
+        <img src="~/ImageThumbnailUrl/@drink.ImageThumbnailUrl" width="320" height="200" alt="Alternate Text" asp-append-version="true"  class="img"/>
+        <div class="caption">
+            <h3 class="pull-right price">@drink.Price.ToString("c")</h3>
+            <h3 class="name">
+                @drink.Name
+            </h3>
+            <p class="description">@drink.ShortDescription</p>
+        </div>
+        
+        <div class="nut">
+            
+            <a class="btn btn-danger" asp-action="Delete" asp-controller="drink" asp-route-drinkId="@drink.DrinkId">Delete</a>
+        </div>
+        
+    </div>
+</div>
+}
